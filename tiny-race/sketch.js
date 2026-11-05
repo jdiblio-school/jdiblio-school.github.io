@@ -2,17 +2,12 @@ let racerXs = [30, 20, 30, 30];
 let startY = 50;
 let yStep = 60;
 let finishX = 560;
-let leader = 0
-
-function setup() {
-  createCanvas(600, startY + yStep * racerXs.length);
-}
+let leader = 0;
 
 function draw() {
+  createCanvas(600, startY + yStep * racerXs.length);
   background(240);
   line(finishX, 0, finishX, height);
-
-  
 
   for (let i = 0; i < racerXs.length; i++) {
     let y = startY + yStep * i;
@@ -26,13 +21,27 @@ function draw() {
 
     if (key === 'r' || key === 'R') {
       racerXs[i] = 30;
+      leader = 0;
     }
 
     circle(racerXs[i], y, 24);
-    
-  }
+
+    }
+
   fill(0);
   textAlign(CENTER, CENTER);
   textSize(16);
   text("leader: " + (leader + 1), width / 2, 20);
+}
+
+function keyPressed() {
+  let newRacer = racerXs[0];
+
+  if (key === 'a') {
+    racerXs.push(newRacer);
+    }
+
+  if (key === 'd') {
+    racerXs.pop();
+  }
 }
