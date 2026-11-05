@@ -2,6 +2,7 @@ let racerXs = [30, 20, 30, 30];
 let startY = 50;
 let yStep = 60;
 let finishX = 560;
+let leader = 0
 
 function setup() {
   createCanvas(600, startY + yStep * racerXs.length);
